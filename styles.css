@@ -1,0 +1,166 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f2f5, #cfd8dc);
+}
+
+#todo-app {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-transform: none;
+    letter-spacing: 1px;
+}
+
+#search-container input,
+#add-task-container input[type="text"],
+#add-task-container input[type="datetime-local"],
+#add-task-container button {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 25px; /* Używamy ostatniej wartości */
+    border: none;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.7); /* Używamy wartości z późniejszego stylu */
+    color: #333;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#search-container input:focus,
+#add-task-container input[type="text"]:focus,
+#add-task-container input[type="datetime-local"]:focus {
+    outline: none;
+    box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.4); /* Używamy wartości z późniejszego stylu */
+    background: rgba(255, 255, 255, 0.9); /* Rozjaśniamy tło przy fokusie */
+}
+
+#add-task-container button {
+    background: linear-gradient(135deg, #4CAF50, #007bff); /* Zaktualizowana wartość */
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    border-radius: 25px; /* Zaokrąglony przycisk */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+#add-task-container button:hover {
+    background: linear-gradient(135deg, #007bff, #4CAF50); /* Odwrotny gradient przy hoverze */
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.5);
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#todo-list li {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(245, 245, 245, 0.95));
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.4s ease forwards;
+    opacity: 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#todo-list li:hover {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.task-deadline {
+    color: #007bff;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn i {
+    font-size: 1.4rem;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+    transform: scale(1.1);
+}
+
+
+mark {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+.edit-input, .save-edit-btn {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.edit-date-input {
+    z-index: 10; /* Ustawienie wyższego z-index */
+    position: relative;
+    cursor: pointer;
+}
+
+
